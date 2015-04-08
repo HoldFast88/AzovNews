@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FFC920621AD569ED00157AB6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC920611AD569ED00157AB6 /* main.m */; };
+		FFC920651AD569ED00157AB6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC920641AD569ED00157AB6 /* AppDelegate.m */; };
+		FFC920681AD569ED00157AB6 /* AzovNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFC920661AD569ED00157AB6 /* AzovNews.xcdatamodeld */; };
+		FFC9206B1AD569ED00157AB6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9206A1AD569ED00157AB6 /* ViewController.m */; };
+		FFC9206E1AD569ED00157AB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFC9206C1AD569ED00157AB6 /* Main.storyboard */; };
+		FFC920701AD569ED00157AB6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFC9206F1AD569ED00157AB6 /* Images.xcassets */; };
+		FFC920731AD569ED00157AB6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFC920711AD569ED00157AB6 /* LaunchScreen.xib */; };
+		FFC9207F1AD569ED00157AB6 /* AzovNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9207E1AD569ED00157AB6 /* AzovNewsTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FFC920791AD569ED00157AB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFC920541AD569ED00157AB6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FFC9205B1AD569ED00157AB6;
+			remoteInfo = AzovNews;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FFC9205C1AD569ED00157AB6 /* AzovNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AzovNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFC920601AD569ED00157AB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFC920611AD569ED00157AB6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FFC920631AD569ED00157AB6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FFC920641AD569ED00157AB6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FFC920671AD569ED00157AB6 /* AzovNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AzovNews.xcdatamodel; sourceTree = "<group>"; };
+		FFC920691AD569ED00157AB6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FFC9206A1AD569ED00157AB6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FFC9206D1AD569ED00157AB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FFC9206F1AD569ED00157AB6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FFC920721AD569ED00157AB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		FFC920781AD569ED00157AB6 /* AzovNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AzovNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFC9207D1AD569ED00157AB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFC9207E1AD569ED00157AB6 /* AzovNewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AzovNewsTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FFC920591AD569ED00157AB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFC920751AD569ED00157AB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FFC920531AD569ED00157AB6 = {
+			isa = PBXGroup;
+			children = (
+				FFC9205E1AD569ED00157AB6 /* AzovNews */,
+				FFC9207B1AD569ED00157AB6 /* AzovNewsTests */,
+				FFC9205D1AD569ED00157AB6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FFC9205D1AD569ED00157AB6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FFC9205C1AD569ED00157AB6 /* AzovNews.app */,
+				FFC920781AD569ED00157AB6 /* AzovNewsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FFC9205E1AD569ED00157AB6 /* AzovNews */ = {
+			isa = PBXGroup;
+			children = (
+				FFC920631AD569ED00157AB6 /* AppDelegate.h */,
+				FFC920641AD569ED00157AB6 /* AppDelegate.m */,
+				FFC920691AD569ED00157AB6 /* ViewController.h */,
+				FFC9206A1AD569ED00157AB6 /* ViewController.m */,
+				FFC9206C1AD569ED00157AB6 /* Main.storyboard */,
+				FFC9206F1AD569ED00157AB6 /* Images.xcassets */,
+				FFC920711AD569ED00157AB6 /* LaunchScreen.xib */,
+				FFC920661AD569ED00157AB6 /* AzovNews.xcdatamodeld */,
+				FFC9205F1AD569ED00157AB6 /* Supporting Files */,
+			);
+			path = AzovNews;
+			sourceTree = "<group>";
+		};
+		FFC9205F1AD569ED00157AB6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FFC920601AD569ED00157AB6 /* Info.plist */,
+				FFC920611AD569ED00157AB6 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FFC9207B1AD569ED00157AB6 /* AzovNewsTests */ = {
+			isa = PBXGroup;
+			children = (
+				FFC9207E1AD569ED00157AB6 /* AzovNewsTests.m */,
+				FFC9207C1AD569ED00157AB6 /* Supporting Files */,
+			);
+			path = AzovNewsTests;
+			sourceTree = "<group>";
+		};
+		FFC9207C1AD569ED00157AB6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FFC9207D1AD569ED00157AB6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FFC9205B1AD569ED00157AB6 /* AzovNews */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFC920821AD569ED00157AB6 /* Build configuration list for PBXNativeTarget "AzovNews" */;
+			buildPhases = (
+				FFC920581AD569ED00157AB6 /* Sources */,
+				FFC920591AD569ED00157AB6 /* Frameworks */,
+				FFC9205A1AD569ED00157AB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AzovNews;
+			productName = AzovNews;
+			productReference = FFC9205C1AD569ED00157AB6 /* AzovNews.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FFC920771AD569ED00157AB6 /* AzovNewsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFC920851AD569ED00157AB6 /* Build configuration list for PBXNativeTarget "AzovNewsTests" */;
+			buildPhases = (
+				FFC920741AD569ED00157AB6 /* Sources */,
+				FFC920751AD569ED00157AB6 /* Frameworks */,
+				FFC920761AD569ED00157AB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FFC9207A1AD569ED00157AB6 /* PBXTargetDependency */,
+			);
+			name = AzovNewsTests;
+			productName = AzovNewsTests;
+			productReference = FFC920781AD569ED00157AB6 /* AzovNewsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FFC920541AD569ED00157AB6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = programmersfamily;
+				TargetAttributes = {
+					FFC9205B1AD569ED00157AB6 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					FFC920771AD569ED00157AB6 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = FFC9205B1AD569ED00157AB6;
+					};
+				};
+			};
+			buildConfigurationList = FFC920571AD569ED00157AB6 /* Build configuration list for PBXProject "AzovNews" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FFC920531AD569ED00157AB6;
+			productRefGroup = FFC9205D1AD569ED00157AB6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FFC9205B1AD569ED00157AB6 /* AzovNews */,
+				FFC920771AD569ED00157AB6 /* AzovNewsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FFC9205A1AD569ED00157AB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFC9206E1AD569ED00157AB6 /* Main.storyboard in Resources */,
+				FFC920731AD569ED00157AB6 /* LaunchScreen.xib in Resources */,
+				FFC920701AD569ED00157AB6 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFC920761AD569ED00157AB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FFC920581AD569ED00157AB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFC920651AD569ED00157AB6 /* AppDelegate.m in Sources */,
+				FFC920681AD569ED00157AB6 /* AzovNews.xcdatamodeld in Sources */,
+				FFC9206B1AD569ED00157AB6 /* ViewController.m in Sources */,
+				FFC920621AD569ED00157AB6 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFC920741AD569ED00157AB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFC9207F1AD569ED00157AB6 /* AzovNewsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FFC9207A1AD569ED00157AB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FFC9205B1AD569ED00157AB6 /* AzovNews */;
+			targetProxy = FFC920791AD569ED00157AB6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FFC9206C1AD569ED00157AB6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFC9206D1AD569ED00157AB6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FFC920711AD569ED00157AB6 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFC920721AD569ED00157AB6 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FFC920801AD569ED00157AB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FFC920811AD569ED00157AB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FFC920831AD569ED00157AB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AzovNews/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FFC920841AD569ED00157AB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AzovNews/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FFC920861AD569ED00157AB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AzovNewsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AzovNews.app/AzovNews";
+			};
+			name = Debug;
+		};
+		FFC920871AD569ED00157AB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AzovNewsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AzovNews.app/AzovNews";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FFC920571AD569ED00157AB6 /* Build configuration list for PBXProject "AzovNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFC920801AD569ED00157AB6 /* Debug */,
+				FFC920811AD569ED00157AB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FFC920821AD569ED00157AB6 /* Build configuration list for PBXNativeTarget "AzovNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFC920831AD569ED00157AB6 /* Debug */,
+				FFC920841AD569ED00157AB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FFC920851AD569ED00157AB6 /* Build configuration list for PBXNativeTarget "AzovNewsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFC920861AD569ED00157AB6 /* Debug */,
+				FFC920871AD569ED00157AB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FFC920661AD569ED00157AB6 /* AzovNews.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FFC920671AD569ED00157AB6 /* AzovNews.xcdatamodel */,
+			);
+			currentVersion = FFC920671AD569ED00157AB6 /* AzovNews.xcdatamodel */;
+			path = AzovNews.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FFC920541AD569ED00157AB6 /* Project object */;
+}
