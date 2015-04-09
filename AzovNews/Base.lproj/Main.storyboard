@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Accounts View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ANAccountsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +15,86 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHq-Gt-5Nq">
+                                <rect key="frame" x="158" y="297" width="88" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="6MW-JJ-k0n"/>
+                                    <constraint firstAttribute="width" constant="88" id="t08-y8-JwH"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="vk_logo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="vkButtonPressed" destination="vXZ-lx-hvc" eventType="touchUpInside" id="t1Y-v8-muY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXE-KY-aHU">
+                                <rect key="frame" x="355" y="297" width="88" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="rPb-3H-gM2"/>
+                                    <constraint firstAttribute="height" constant="88" id="tqo-h8-jea"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="fb_logo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="fbButtonPressed" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gKC-Un-yer"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reconquista_logo" translatesAutoresizingMaskIntoConstraints="NO" id="AcG-HI-7vI">
+                                <rect key="frame" x="200" y="66" width="201" height="82"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="WEb-3w-MR1"/>
+                                    <constraint firstAttribute="width" constant="201" id="e1b-uo-Aaq"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Подключите аккаунты в соцсетях:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hT1-or-ky9">
+                                <rect key="frame" x="140" y="225" width="320" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="3R6-fC-2jK"/>
+                                    <constraint firstAttribute="width" constant="320" id="WyU-7x-GdJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wom-Zh-2GG">
+                                <rect key="frame" x="16" y="28" width="88" height="44"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <state key="normal" title="Закрыть">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonPressed" destination="vXZ-lx-hvc" eventType="touchUpInside" id="z8m-bW-aUn"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KXE-KY-aHU" firstAttribute="trailing" secondItem="hT1-or-ky9" secondAttribute="trailing" constant="-17" id="1su-mr-s1W"/>
+                            <constraint firstItem="hT1-or-ky9" firstAttribute="top" secondItem="AcG-HI-7vI" secondAttribute="bottom" constant="77" id="6g9-fq-rH2"/>
+                            <constraint firstAttribute="centerX" secondItem="hT1-or-ky9" secondAttribute="centerX" id="BNe-vL-K40"/>
+                            <constraint firstAttribute="centerX" secondItem="AcG-HI-7vI" secondAttribute="centerX" constant="-0.5" id="BOv-Y7-U8i"/>
+                            <constraint firstAttribute="centerY" secondItem="AcG-HI-7vI" secondAttribute="centerY" constant="193" id="RyS-4h-NPx"/>
+                            <constraint firstItem="AHq-Gt-5Nq" firstAttribute="leading" secondItem="hT1-or-ky9" secondAttribute="leading" constant="18" id="UlD-yf-nOT"/>
+                            <constraint firstItem="AHq-Gt-5Nq" firstAttribute="top" secondItem="hT1-or-ky9" secondAttribute="bottom" constant="51" id="b53-Kl-R9n"/>
+                            <constraint firstItem="KXE-KY-aHU" firstAttribute="top" secondItem="hT1-or-ky9" secondAttribute="bottom" constant="51" id="laZ-QI-alC"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="closeButton" destination="Wom-Zh-2GG" id="LWo-Bt-ARm"/>
+                        <outlet property="fbButton" destination="KXE-KY-aHU" id="Znm-hE-VIt"/>
+                        <outlet property="vkButton" destination="AHq-Gt-5Nq" id="H0I-Js-vUA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="fb_logo" width="86" height="86"/>
+        <image name="reconquista_logo" width="201" height="82"/>
+        <image name="vk_logo" width="86" height="86"/>
+    </resources>
 </document>

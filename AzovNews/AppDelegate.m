@@ -7,6 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "VKSdk.h"
+#import "ANVKManager.h"
+
+
+static NSString * VKAppID = @"4868008";
+
 
 @interface AppDelegate ()
 
@@ -16,6 +22,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [VKSdk initializeWithDelegate:[ANVKManager sharedManager] andAppId:VKAppID];
     // Override point for customization after application launch.
     return YES;
 }
@@ -53,6 +60,12 @@
 - (NSURL *)applicationDocumentsDirectory {
     // The directory the application uses to store the Core Data store file. This code uses a directory named "programmersfamily.AzovNews" in the application's documents directory.
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    [VKSdk processOpenURL:url fromApplication:sourceApplication];
+    return YES;
 }
 
 - (NSManagedObjectModel *)managedObjectModel {
