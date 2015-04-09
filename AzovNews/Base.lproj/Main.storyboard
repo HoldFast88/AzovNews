@@ -1,9 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZXO-yL-KZH">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
+        <!--Feed View Controller-->
+        <scene sceneID="l4f-T9-PND">
+            <objects>
+                <viewController id="q6D-56-133" customClass="ANFeedViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1cf-ay-moo"/>
+                        <viewControllerLayoutGuide type="bottom" id="wHk-jx-1N2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jKH-nR-bF0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="b2a-AU-b7C">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R70-bi-gLC">
+                                    <size key="itemSize" width="600" height="98"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="reuseId" id="ANY-ca-rxE" customClass="ANPostCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="98"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="q6D-56-133" id="UUi-Il-jt8"/>
+                                    <outlet property="delegate" destination="q6D-56-133" id="oIc-cq-Cxe"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="b2a-AU-b7C" firstAttribute="leading" secondItem="jKH-nR-bF0" secondAttribute="leading" id="O0R-j2-iRP"/>
+                            <constraint firstItem="wHk-jx-1N2" firstAttribute="top" secondItem="b2a-AU-b7C" secondAttribute="bottom" id="llD-QD-Qwc"/>
+                            <constraint firstAttribute="trailing" secondItem="b2a-AU-b7C" secondAttribute="trailing" id="nrY-Cl-ms2"/>
+                            <constraint firstItem="b2a-AU-b7C" firstAttribute="top" secondItem="jKH-nR-bF0" secondAttribute="top" id="rRl-Uz-9Rg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="OZs-iL-iWU"/>
+                    <connections>
+                        <outlet property="collectionView" destination="b2a-AU-b7C" id="fin-Go-CPr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pBY-TE-PfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1175" y="-378"/>
+        </scene>
         <!--Accounts View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -16,39 +70,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHq-Gt-5Nq">
-                                <rect key="frame" x="158" y="297" width="88" height="88"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="88" id="6MW-JJ-k0n"/>
-                                    <constraint firstAttribute="width" constant="88" id="t08-y8-JwH"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="vk_logo">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="vkButtonPressed" destination="vXZ-lx-hvc" eventType="touchUpInside" id="t1Y-v8-muY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXE-KY-aHU">
-                                <rect key="frame" x="355" y="297" width="88" height="88"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="88" id="rPb-3H-gM2"/>
-                                    <constraint firstAttribute="height" constant="88" id="tqo-h8-jea"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="fb_logo">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="fbButtonPressed" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gKC-Un-yer"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reconquista_logo" translatesAutoresizingMaskIntoConstraints="NO" id="AcG-HI-7vI">
-                                <rect key="frame" x="200" y="66" width="201" height="82"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="82" id="WEb-3w-MR1"/>
-                                    <constraint firstAttribute="width" constant="201" id="e1b-uo-Aaq"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Подключите аккаунты в соцсетях:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hT1-or-ky9">
                                 <rect key="frame" x="140" y="225" width="320" height="21"/>
                                 <constraints>
@@ -69,32 +90,56 @@
                                     <action selector="closeButtonPressed" destination="vXZ-lx-hvc" eventType="touchUpInside" id="z8m-bW-aUn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXE-KY-aHU">
+                                <rect key="frame" x="256" y="297" width="88" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="rPb-3H-gM2"/>
+                                    <constraint firstAttribute="height" constant="88" id="tqo-h8-jea"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="fb_logo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="fbButtonPressed" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gKC-Un-yer"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="KXE-KY-aHU" firstAttribute="trailing" secondItem="hT1-or-ky9" secondAttribute="trailing" constant="-17" id="1su-mr-s1W"/>
-                            <constraint firstItem="hT1-or-ky9" firstAttribute="top" secondItem="AcG-HI-7vI" secondAttribute="bottom" constant="77" id="6g9-fq-rH2"/>
                             <constraint firstAttribute="centerX" secondItem="hT1-or-ky9" secondAttribute="centerX" id="BNe-vL-K40"/>
-                            <constraint firstAttribute="centerX" secondItem="AcG-HI-7vI" secondAttribute="centerX" constant="-0.5" id="BOv-Y7-U8i"/>
-                            <constraint firstAttribute="centerY" secondItem="AcG-HI-7vI" secondAttribute="centerY" constant="193" id="RyS-4h-NPx"/>
-                            <constraint firstItem="AHq-Gt-5Nq" firstAttribute="leading" secondItem="hT1-or-ky9" secondAttribute="leading" constant="18" id="UlD-yf-nOT"/>
-                            <constraint firstItem="AHq-Gt-5Nq" firstAttribute="top" secondItem="hT1-or-ky9" secondAttribute="bottom" constant="51" id="b53-Kl-R9n"/>
+                            <constraint firstItem="KXE-KY-aHU" firstAttribute="centerX" secondItem="hT1-or-ky9" secondAttribute="centerX" id="UaC-mn-uJ7"/>
                             <constraint firstItem="KXE-KY-aHU" firstAttribute="top" secondItem="hT1-or-ky9" secondAttribute="bottom" constant="51" id="laZ-QI-alC"/>
+                            <constraint firstAttribute="centerY" secondItem="hT1-or-ky9" secondAttribute="centerY" constant="64.5" id="nQN-xK-SNH"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="closeButton" destination="Wom-Zh-2GG" id="LWo-Bt-ARm"/>
                         <outlet property="fbButton" destination="KXE-KY-aHU" id="Znm-hE-VIt"/>
-                        <outlet property="vkButton" destination="AHq-Gt-5Nq" id="H0I-Js-vUA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1175" y="400"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="utm-K7-y4u">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZXO-yL-KZH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HeG-Qf-wya">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="q6D-56-133" kind="relationship" relationship="rootViewController" id="sDa-YM-TlX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mCy-zl-WCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="363" y="-378"/>
         </scene>
     </scenes>
     <resources>
         <image name="fb_logo" width="86" height="86"/>
-        <image name="reconquista_logo" width="201" height="82"/>
-        <image name="vk_logo" width="86" height="86"/>
     </resources>
 </document>

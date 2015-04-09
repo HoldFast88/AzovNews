@@ -8,13 +8,10 @@
 
 #import "ANAccountsViewController.h"
 #import "ANFacebookManager.h"
-#import "ANVKManager.h"
 
 
 @interface ANAccountsViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *vkButton;
 @property (weak, nonatomic) IBOutlet UIButton *fbButton;
-@property (weak, nonatomic) IBOutlet UIButton *closeButton;
 @end
 
 
@@ -29,21 +26,10 @@
 
 - (void)updateView
 {
-    self.vkButton.enabled = ![ANVKManager sharedManager].isAuthorized;
     self.fbButton.enabled = ![ANFacebookManager sharedManager].isAuthorized;
-    self.closeButton.hidden = ![ANVKManager sharedManager].isAuthorized && ![ANFacebookManager sharedManager].isAuthorized;
 }
 
 #pragma mark - Actions
-
-- (IBAction)vkButtonPressed
-{
-    [[ANVKManager sharedManager] authorizeWithCompletionHandler:^(BOOL isSuccess) {
-        if (isSuccess) {
-            [self updateView];
-        }
-    }];
-}
 
 - (IBAction)fbButtonPressed
 {

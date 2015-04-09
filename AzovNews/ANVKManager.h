@@ -12,9 +12,5 @@
 
 
 @interface ANVKManager : NSObject <VKSdkDelegate, ANManagerProtocol>
-
-@property (nonatomic, readonly) BOOL isAuthorized;
-
 + (instancetype)sharedManager;
-
 @end

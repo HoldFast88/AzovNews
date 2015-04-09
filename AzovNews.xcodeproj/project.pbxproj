@@ -18,6 +18,9 @@
 		FFC9207F1AD569ED00157AB6 /* AzovNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9207E1AD569ED00157AB6 /* AzovNewsTests.m */; };
 		FFC9208D1AD56A2400157AB6 /* ANVKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9208C1AD56A2400157AB6 /* ANVKManager.m */; };
 		FFC920901AD56A3500157AB6 /* ANFacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9208F1AD56A3500157AB6 /* ANFacebookManager.m */; };
+		FFDC7E9D1AD6BCF800C1F87F /* ANPost.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDC7E9C1AD6BCF800C1F87F /* ANPost.m */; };
+		FFDC7EA11AD6C01A00C1F87F /* ANFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDC7EA01AD6C01A00C1F87F /* ANFeedViewController.m */; };
+		FFDC7EA51AD6C0D400C1F87F /* ANPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDC7EA41AD6C0D400C1F87F /* ANPostCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,12 @@
 		FFC9208E1AD56A3500157AB6 /* ANFacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANFacebookManager.h; sourceTree = "<group>"; };
 		FFC9208F1AD56A3500157AB6 /* ANFacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANFacebookManager.m; sourceTree = "<group>"; };
 		FFDC7E991AD6A8A000C1F87F /* Declarations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Declarations.h; sourceTree = "<group>"; };
+		FFDC7E9B1AD6BCF800C1F87F /* ANPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANPost.h; sourceTree = "<group>"; };
+		FFDC7E9C1AD6BCF800C1F87F /* ANPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANPost.m; sourceTree = "<group>"; };
+		FFDC7E9F1AD6C01A00C1F87F /* ANFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANFeedViewController.h; sourceTree = "<group>"; };
+		FFDC7EA01AD6C01A00C1F87F /* ANFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANFeedViewController.m; sourceTree = "<group>"; };
+		FFDC7EA31AD6C0D400C1F87F /* ANPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANPostCell.h; sourceTree = "<group>"; };
+		FFDC7EA41AD6C0D400C1F87F /* ANPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANPostCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +123,8 @@
 		FFC9205E1AD569ED00157AB6 /* AzovNews */ = {
 			isa = PBXGroup;
 			children = (
+				FFDC7EA21AD6C0BC00C1F87F /* Views */,
+				FFDC7E9A1AD6BCD900C1F87F /* Models */,
 				FFD0ECE61AD5814B00FC00CF /* View Controllers */,
 				FFC920881AD569FA00157AB6 /* Managers */,
 				FFC920631AD569ED00157AB6 /* AppDelegate.h */,
@@ -184,6 +195,7 @@
 		FFD0ECE61AD5814B00FC00CF /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FFDC7E9E1AD6BFE300C1F87F /* Feed */,
 				FFD0ECE71AD5815400FC00CF /* Accounts */,
 			);
 			name = "View Controllers";
@@ -196,6 +208,33 @@
 				FFC9206A1AD569ED00157AB6 /* ANAccountsViewController.m */,
 			);
 			name = Accounts;
+			sourceTree = "<group>";
+		};
+		FFDC7E9A1AD6BCD900C1F87F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FFDC7E9B1AD6BCF800C1F87F /* ANPost.h */,
+				FFDC7E9C1AD6BCF800C1F87F /* ANPost.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FFDC7E9E1AD6BFE300C1F87F /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				FFDC7E9F1AD6C01A00C1F87F /* ANFeedViewController.h */,
+				FFDC7EA01AD6C01A00C1F87F /* ANFeedViewController.m */,
+			);
+			name = Feed;
+			sourceTree = "<group>";
+		};
+		FFDC7EA21AD6C0BC00C1F87F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FFDC7EA31AD6C0D400C1F87F /* ANPostCell.h */,
+				FFDC7EA41AD6C0D400C1F87F /* ANPostCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,7 +373,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFC9208D1AD56A2400157AB6 /* ANVKManager.m in Sources */,
+				FFDC7E9D1AD6BCF800C1F87F /* ANPost.m in Sources */,
 				FFC920651AD569ED00157AB6 /* AppDelegate.m in Sources */,
+				FFDC7EA11AD6C01A00C1F87F /* ANFeedViewController.m in Sources */,
+				FFDC7EA51AD6C0D400C1F87F /* ANPostCell.m in Sources */,
 				FFC920901AD56A3500157AB6 /* ANFacebookManager.m in Sources */,
 				FFC920681AD569ED00157AB6 /* AzovNews.xcdatamodeld in Sources */,
 				FFC9206B1AD569ED00157AB6 /* ANAccountsViewController.m in Sources */,
