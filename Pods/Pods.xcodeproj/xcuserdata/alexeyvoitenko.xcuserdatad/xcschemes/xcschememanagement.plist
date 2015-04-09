@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-AFNetworking.xcscheme</key>
+		<key>Pods-AsyncImageView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,27 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>343E2F01A8E6C11990F02A3B</key>
+		<key>1E6739984DCC46BC6CE5D61A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6C5B51496E4DDB64B320DF6E</key>
+		<key>47D175C08235EC5691454C87</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>702F632CCE8888DF64880967</key>
+		<key>4970C73E16A0D1AE1D7A87F8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CE2567D001FCEFD2C0F85FA8</key>
+		<key>AE1EDA1B01FA25CF02DDFEBA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D5C96AA01270482DE1DB7D32</key>
+		<key>C4168757AAAB8B89D219C159</key>
 		<dict>
 			<key>primary</key>
 			<true/>

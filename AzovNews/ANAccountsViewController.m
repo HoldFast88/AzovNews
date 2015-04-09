@@ -56,7 +56,7 @@
 
 - (IBAction)closeButtonPressed
 {
-    
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end
