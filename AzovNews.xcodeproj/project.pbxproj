@@ -251,6 +251,7 @@
 			children = (
 				FFDC7EF21AE3CDA500C1F87F /* Base Class */,
 				FFDC7EF31AE3CDB700C1F87F /* VK Post */,
+				FFDC7EF71AE3DC7C00C1F87F /* FB Post */,
 			);
 			name = Post;
 			sourceTree = "<group>";
@@ -306,6 +307,13 @@
 				FFDC7EF51AE3CDCF00C1F87F /* ANVKPost.m */,
 			);
 			name = "VK Post";
+			sourceTree = "<group>";
+		};
+		FFDC7EF71AE3DC7C00C1F87F /* FB Post */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "FB Post";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

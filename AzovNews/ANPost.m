@@ -10,11 +10,16 @@
 
 
 @interface ANPost ()
-@property (nonatomic, strong) NSDictionary *dictionary;
+
 @end
 
 
 @implementation ANPost
+
+@synthesize text = _text;
+@synthesize attachments = _attachments;
+@synthesize date = _date;
+@synthesize groupId = _groupId;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary andSource:(ANSource)source
 {

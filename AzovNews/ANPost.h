@@ -10,7 +10,8 @@
 #import "Declarations.h"
 
 
-@interface ANPost : NSObject
+@interface ANPost : NSObject <ANPostProtocol>
+@property (nonatomic, strong) NSDictionary *dictionary;
 @property (nonatomic, readonly) ANSource source;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary andSource:(ANSource)source;

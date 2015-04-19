@@ -53,5 +53,8 @@ typedef NS_ENUM(NSUInteger, ANSource) {
 
 
 @protocol ANPostProtocol <NSObject>
-@property (nonatomic, strong) NSString *text;
+@property (strong, nonatomic) NSString *text;
+@property (strong, nonatomic) NSArray *attachments;
+@property (strong, nonatomic) NSDate *date;
+@property (strong, nonatomic) NSString *groupId;
 @end
