@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VKSdk.h"
 #import "Declarations.h"
 
 
-@interface ANVKManager : NSObject <VKSdkDelegate, ANManagerProtocol>
+@interface ANVKManager : NSObject
 + (instancetype)sharedManager;
+
+- (void)updateGroupsInformationWithCompletionHandler:(ANGroupsInformationUpdateHandler)completionHandler;
+- (void)requestGroupsPostsWithCompletionHandler:(ANGroupsPostsHandler)completionHandler;
 @end

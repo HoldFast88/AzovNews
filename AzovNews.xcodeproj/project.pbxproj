@@ -21,6 +21,9 @@
 		FFDC7E9D1AD6BCF800C1F87F /* ANPost.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDC7E9C1AD6BCF800C1F87F /* ANPost.m */; };
 		FFDC7EA11AD6C01A00C1F87F /* ANFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDC7EA01AD6C01A00C1F87F /* ANFeedViewController.m */; };
 		FFDC7EA51AD6C0D400C1F87F /* ANPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDC7EA41AD6C0D400C1F87F /* ANPostCell.m */; };
+		FFDC7EAD1AD9A05200C1F87F /* ANGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDC7EAC1AD9A05200C1F87F /* ANGroup.m */; };
+		FFDC7EF11AE1806600C1F87F /* ANVKGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDC7EF01AE1806600C1F87F /* ANVKGroup.m */; };
+		FFDC7EF61AE3CDCF00C1F87F /* ANVKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDC7EF51AE3CDCF00C1F87F /* ANVKPost.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,12 @@
 		FFDC7EA01AD6C01A00C1F87F /* ANFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANFeedViewController.m; sourceTree = "<group>"; };
 		FFDC7EA31AD6C0D400C1F87F /* ANPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANPostCell.h; sourceTree = "<group>"; };
 		FFDC7EA41AD6C0D400C1F87F /* ANPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANPostCell.m; sourceTree = "<group>"; };
+		FFDC7EAB1AD9A05200C1F87F /* ANGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGroup.h; sourceTree = "<group>"; };
+		FFDC7EAC1AD9A05200C1F87F /* ANGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGroup.m; sourceTree = "<group>"; };
+		FFDC7EEF1AE1806600C1F87F /* ANVKGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANVKGroup.h; sourceTree = "<group>"; };
+		FFDC7EF01AE1806600C1F87F /* ANVKGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANVKGroup.m; sourceTree = "<group>"; };
+		FFDC7EF41AE3CDCF00C1F87F /* ANVKPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANVKPost.h; sourceTree = "<group>"; };
+		FFDC7EF51AE3CDCF00C1F87F /* ANVKPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANVKPost.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,8 +222,8 @@
 		FFDC7E9A1AD6BCD900C1F87F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FFDC7E9B1AD6BCF800C1F87F /* ANPost.h */,
-				FFDC7E9C1AD6BCF800C1F87F /* ANPost.m */,
+				FFDC7EAA1AD9A02E00C1F87F /* Group */,
+				FFDC7EA91AD9A02500C1F87F /* Post */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -235,6 +244,68 @@
 				FFDC7EA41AD6C0D400C1F87F /* ANPostCell.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		FFDC7EA91AD9A02500C1F87F /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				FFDC7EF21AE3CDA500C1F87F /* Base Class */,
+				FFDC7EF31AE3CDB700C1F87F /* VK Post */,
+			);
+			name = Post;
+			sourceTree = "<group>";
+		};
+		FFDC7EAA1AD9A02E00C1F87F /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				FFDC7EEC1AE17FF200C1F87F /* Base Class */,
+				FFDC7EEE1AE1800800C1F87F /* VK Group */,
+				FFDC7EED1AE17FFE00C1F87F /* Facebook Group */,
+			);
+			name = Group;
+			sourceTree = "<group>";
+		};
+		FFDC7EEC1AE17FF200C1F87F /* Base Class */ = {
+			isa = PBXGroup;
+			children = (
+				FFDC7EAB1AD9A05200C1F87F /* ANGroup.h */,
+				FFDC7EAC1AD9A05200C1F87F /* ANGroup.m */,
+			);
+			name = "Base Class";
+			sourceTree = "<group>";
+		};
+		FFDC7EED1AE17FFE00C1F87F /* Facebook Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Facebook Group";
+			sourceTree = "<group>";
+		};
+		FFDC7EEE1AE1800800C1F87F /* VK Group */ = {
+			isa = PBXGroup;
+			children = (
+				FFDC7EEF1AE1806600C1F87F /* ANVKGroup.h */,
+				FFDC7EF01AE1806600C1F87F /* ANVKGroup.m */,
+			);
+			name = "VK Group";
+			sourceTree = "<group>";
+		};
+		FFDC7EF21AE3CDA500C1F87F /* Base Class */ = {
+			isa = PBXGroup;
+			children = (
+				FFDC7E9B1AD6BCF800C1F87F /* ANPost.h */,
+				FFDC7E9C1AD6BCF800C1F87F /* ANPost.m */,
+			);
+			name = "Base Class";
+			sourceTree = "<group>";
+		};
+		FFDC7EF31AE3CDB700C1F87F /* VK Post */ = {
+			isa = PBXGroup;
+			children = (
+				FFDC7EF41AE3CDCF00C1F87F /* ANVKPost.h */,
+				FFDC7EF51AE3CDCF00C1F87F /* ANVKPost.m */,
+			);
+			name = "VK Post";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,8 +449,11 @@
 				FFDC7EA11AD6C01A00C1F87F /* ANFeedViewController.m in Sources */,
 				FFDC7EA51AD6C0D400C1F87F /* ANPostCell.m in Sources */,
 				FFC920901AD56A3500157AB6 /* ANFacebookManager.m in Sources */,
+				FFDC7EAD1AD9A05200C1F87F /* ANGroup.m in Sources */,
+				FFDC7EF61AE3CDCF00C1F87F /* ANVKPost.m in Sources */,
 				FFC920681AD569ED00157AB6 /* AzovNews.xcdatamodeld in Sources */,
 				FFC9206B1AD569ED00157AB6 /* ANAccountsViewController.m in Sources */,
+				FFDC7EF11AE1806600C1F87F /* ANVKGroup.m in Sources */,
 				FFC920621AD569ED00157AB6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

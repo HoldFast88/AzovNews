@@ -7,19 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-
-
-typedef NS_ENUM(NSUInteger, ANSource) {
-    ANVK,
-    ANFacebook,
-};
+#import "Declarations.h"
 
 
 @interface ANPost : NSObject
-
 @property (nonatomic, readonly) ANSource source;
-@property (strong, nonatomic, readonly) NSString *text;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary andSource:(ANSource)source;
-
 @end

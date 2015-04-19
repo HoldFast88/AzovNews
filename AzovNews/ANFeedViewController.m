@@ -16,7 +16,6 @@
 @interface ANFeedViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *datasource;
-@property (nonatomic) dispatch_group_t requestsGroup;
 @end
 
 
@@ -32,24 +31,11 @@
 
 - (void)updateDatasource
 {
-    self.requestsGroup = NULL;
-    self.requestsGroup = dispatch_group_create();
-    
-    dispatch_group_enter(self.requestsGroup);
-    [[ANVKManager sharedManager] requestGroupsPostsWithCompletionHandler:^(BOOL isSuccess, NSArray *posts) {
-        self.datasource = [self.datasource arrayByAddingObjectsFromArray:posts];
-        dispatch_group_leave(self.requestsGroup);
+    [[ANVKManager sharedManager] updateGroupsInformationWithCompletionHandler:^(BOOL isSuccess) {
+        [[ANVKManager sharedManager] requestGroupsPostsWithCompletionHandler:^(BOOL isSuccess, NSArray *posts) {
+            
+        }];
     }];
-    
-//    dispatch_group_enter(self.requestsGroup);
-//    [[ANFacebookManager sharedManager] requestGroupsPostsWithCompletionHandler:^(BOOL isSuccess, NSArray *posts) {
-//        
-//        dispatch_group_leave(self.requestsGroup);
-//    }];
-    
-    dispatch_group_notify(self.requestsGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        [self updateView];
-    });
 }
 
 - (void)updateView

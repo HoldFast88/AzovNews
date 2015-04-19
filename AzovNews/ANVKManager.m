@@ -9,13 +9,16 @@
 #import "ANVKManager.h"
 #import "AppDelegate.h"
 #import "ANPost.h"
+#import "ANVKGroup.h"
+#import "VKSdk.h"
+
 
 #define kGroupsIdentifiers @[@"-72444174"]
 
 
 @interface ANVKManager ()
-@property (nonatomic, copy) ANAuthorizationHandler authorizationHandler;
-@property (nonatomic) dispatch_group_t groupsGroup;
+@property (strong, nonatomic) dispatch_group_t dispatchRequestGroupsPostsGroup;
+@property (nonatomic, strong) NSArray *groups;
 @end
 
 
@@ -32,80 +35,90 @@
     return instance;
 }
 
-#pragma mark - ANManagerProtocol
-
-- (void)authorizeWithCompletionHandler:(ANAuthorizationHandler)completionHandler
+- (instancetype)init
 {
-    self.authorizationHandler = completionHandler;
-    [VKSdk authorize:@[@"groups", @"offline"]];
+    self = [super init];
+    
+    if (self) {
+        NSMutableArray *groups = [NSMutableArray arrayWithCapacity:kGroupsIdentifiers.count];
+        
+        for (NSString *groupId in kGroupsIdentifiers) {
+            ANVKGroup *group = [[ANVKGroup alloc] initWithType:ANGroupTypeVK andIdentifier:groupId];
+            [groups addObject:group];
+        }
+        
+        self.groups = [NSArray arrayWithArray:groups];
+    }
+    
+    return self;
+}
+
+- (void)updateGroupsInformationWithCompletionHandler:(ANGroupsInformationUpdateHandler)completionHandler
+{
+    NSMutableArray *groupIdsAbsoluteValues = [NSMutableArray arrayWithCapacity:kGroupsIdentifiers.count];
+    
+    for (NSString *rawValue in kGroupsIdentifiers) {
+        NSString *absoluteValue = [@(ABS(rawValue.longLongValue)) stringValue];
+        [groupIdsAbsoluteValues addObject:absoluteValue];
+    }
+    
+    NSString *group_ids = [groupIdsAbsoluteValues componentsJoinedByString:@","];
+    
+    VKRequest *feedRequest = [VKApi requestWithMethod:@"groups.getById"
+                                        andParameters:@{@"group_ids" : group_ids, @"fields" : @"description"}
+                                        andHttpMethod:@"GET"];
+    [feedRequest executeWithResultBlock:^(VKResponse *response) {
+        NSArray *dictionaries = response.json;
+        
+        for (NSDictionary *info in dictionaries) {
+            NSNumber *identifier = info[@"id"];
+            
+            for (ANVKGroup *group in self.groups) {
+                if (ABS(identifier.longLongValue) == group.groupId.longLongValue) {
+                    group.groupName = info[@"name"];
+                    group.groupLogoImage100URLString = info[@"photo_100"];
+                    group.groupLogoImage200URLString = info[@"photo_200"];
+                    group.groupLogoImage50URLString = info[@"photo_50"];
+                }
+            }
+        }
+        
+        if (completionHandler) {
+            completionHandler(YES);
+        }
+    } errorBlock:^(NSError *error) {
+        if (completionHandler) {
+            completionHandler(NO);
+        }
+    }];
 }
 
 - (void)requestGroupsPostsWithCompletionHandler:(ANGroupsPostsHandler)completionHandler
 {
-    self.groupsGroup = NULL;
-    self.groupsGroup = dispatch_group_create();
+    self.dispatchRequestGroupsPostsGroup = NULL;
+    self.dispatchRequestGroupsPostsGroup = dispatch_group_create();
     
     NSMutableArray *posts = [NSMutableArray array];
     
-    for (NSString *groupId in kGroupsIdentifiers) {
-        dispatch_group_enter(self.groupsGroup);
+    for (ANVKGroup *group in self.groups) {
+        dispatch_group_enter(self.dispatchRequestGroupsPostsGroup);
         
-        VKRequest *feedRequest = [VKApi requestWithMethod:@"wall.get"
-                                            andParameters:@{@"owner_id" : groupId, @"count" : @"3", @"filter" : @"all"}
-                                            andHttpMethod:@"GET"];
-        [feedRequest executeWithResultBlock:^(VKResponse *response) {
-            for (NSDictionary *item in response.json[@"items"]) {
-                ANPost *post = [[ANPost alloc] initWithDictionary:item andSource:ANVK];
-                [posts addObject:post];
+        [group requestGroupsPostsWithCompletionHandler:^(BOOL isSuccess, NSArray *fetchedPosts) {
+            if (isSuccess) {
+                [posts addObjectsFromArray:fetchedPosts];
             }
             
-            dispatch_group_leave(self.groupsGroup);
-        } errorBlock:^(NSError *error) {
-            if (completionHandler) {
-                completionHandler(NO, nil);
-            }
-            
-            dispatch_group_leave(self.groupsGroup);
+            dispatch_group_leave(self.dispatchRequestGroupsPostsGroup);
         }];
     }
     
-    dispatch_group_notify(self.groupsGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+    dispatch_group_notify(self.dispatchRequestGroupsPostsGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         if (completionHandler) {
+//            NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:<#(NSString *)#> ascending:<#(BOOL)#>];
+//            [posts sortUsingDescriptors:@[sortDescriptor]];
             completionHandler(YES, [NSArray arrayWithArray:posts]);
         }
     });
-}
-
-#pragma mark - VKSdkDelegate
-
-- (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError
-{
-    
-}
-
-- (void)vkSdkTokenHasExpired:(VKAccessToken *)expiredToken
-{
-    
-}
-
-- (void)vkSdkUserDeniedAccess:(VKError *)authorizationError
-{
-    if (self.authorizationHandler) {
-        self.authorizationHandler(NO);
-    }
-}
-
-- (void)vkSdkShouldPresentViewController:(UIViewController *)controller
-{
-    UIViewController *rootViewController = appDelegate.window.rootViewController;
-    [rootViewController presentViewController:controller animated:YES completion:NULL];
-}
-
-- (void)vkSdkReceivedNewToken:(VKAccessToken *)newToken
-{
-    if (self.authorizationHandler) {
-        self.authorizationHandler(YES);
-    }
 }
 
 @end
