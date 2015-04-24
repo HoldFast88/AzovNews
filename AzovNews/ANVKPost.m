@@ -42,7 +42,7 @@
 - (NSString *)groupId
 {
     if (_groupId == nil) {
-        _groupId = self.dictionary[@"owner_id"];
+        _groupId = [self.dictionary[@"owner_id"] stringValue];
     }
     
     return _groupId;

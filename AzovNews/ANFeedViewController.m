@@ -33,7 +33,13 @@
 {
     [[ANVKManager sharedManager] updateGroupsInformationWithCompletionHandler:^(BOOL isSuccess) {
         [[ANVKManager sharedManager] requestGroupsPostsWithCompletionHandler:^(BOOL isSuccess, NSArray *posts) {
-            
+            if (isSuccess) {
+                self.datasource = posts;
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self updateView];
+                });
+            }
         }];
     }];
 }
@@ -53,6 +59,10 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ANPostCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"reuseId" forIndexPath:indexPath];
+    ANPost *post = self.datasource[indexPath.row];
+    
+    [cell configureWithPost:post];
+    
     return cell;
 }
 
@@ -60,12 +70,8 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    id object = self.datasource[indexPath.row];
-    CGFloat height = CGRectGetHeight(self.collectionView.frame);
-    
-    if ([object isKindOfClass:[ANPostCell class]]) {
-        height = [ANPostCell heightForPost:object];
-    }
+    ANPost *object = self.datasource[indexPath.row];
+    CGFloat height = [ANPostCell heightForPost:object];
     
     return CGSizeMake(CGRectGetWidth(self.collectionView.frame), height);
 }

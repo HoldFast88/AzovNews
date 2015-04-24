@@ -18,8 +18,12 @@
 @implementation ANGroup
 
 @synthesize posts = _posts;
+@synthesize groupName = _groupName;
 @synthesize groupType = _groupType;
 @synthesize groupId = _groupId;
+@synthesize groupLogoImage100URLString = _groupLogoImage100URLString;
+@synthesize groupLogoImage200URLString = _groupLogoImage200URLString;
+@synthesize groupLogoImage50URLString = _groupLogoImage50URLString;
 
 - (id <ANGroupProtocol>)initWithType:(ANGroupType)groupType andIdentifier:(NSString *)groupId
 {

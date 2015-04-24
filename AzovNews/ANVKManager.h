@@ -13,6 +13,7 @@
 @interface ANVKManager : NSObject
 + (instancetype)sharedManager;
 
+- (id <ANGroupProtocol>)groupWithIdentifier:(NSString *)groupId;
 - (void)updateGroupsInformationWithCompletionHandler:(ANGroupsInformationUpdateHandler)completionHandler;
 - (void)requestGroupsPostsWithCompletionHandler:(ANGroupsPostsHandler)completionHandler;
 @end

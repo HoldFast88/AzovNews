@@ -30,6 +30,10 @@
             ANVKPost *post = [[ANVKPost alloc] initWithDictionary:item andSource:ANVK];
             [posts addObject:post];
         }
+        
+        if (completionHandler) {
+            completionHandler(YES, posts);
+        }
     } errorBlock:^(NSError *error) {
         if (completionHandler) {
             completionHandler(NO, nil);

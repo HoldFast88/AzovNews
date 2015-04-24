@@ -13,7 +13,7 @@
 #import "VKSdk.h"
 
 
-#define kGroupsIdentifiers @[@"-72444174"]
+#define kGroupsIdentifiers @[@"-72444174", @"-1611359"]
 
 
 @interface ANVKManager ()
@@ -53,6 +53,17 @@
     return self;
 }
 
+- (id<ANGroupProtocol>)groupWithIdentifier:(NSString *)groupId
+{
+    for (ANVKGroup *group in self.groups) {
+        if ([group.groupId isEqualToString:groupId]) {
+            return group;
+        }
+    }
+    
+    return nil;
+}
+
 - (void)updateGroupsInformationWithCompletionHandler:(ANGroupsInformationUpdateHandler)completionHandler
 {
     NSMutableArray *groupIdsAbsoluteValues = [NSMutableArray arrayWithCapacity:kGroupsIdentifiers.count];
@@ -72,15 +83,11 @@
         
         for (NSDictionary *info in dictionaries) {
             NSNumber *identifier = info[@"id"];
-            
-            for (ANVKGroup *group in self.groups) {
-                if (ABS(identifier.longLongValue) == group.groupId.longLongValue) {
-                    group.groupName = info[@"name"];
-                    group.groupLogoImage100URLString = info[@"photo_100"];
-                    group.groupLogoImage200URLString = info[@"photo_200"];
-                    group.groupLogoImage50URLString = info[@"photo_50"];
-                }
-            }
+            ANVKGroup *group = [self groupWithIdentifier:[NSString stringWithFormat:@"-%@", [identifier stringValue]]];
+            group.groupName = info[@"name"];
+            group.groupLogoImage100URLString = info[@"photo_100"];
+            group.groupLogoImage200URLString = info[@"photo_200"];
+            group.groupLogoImage50URLString = info[@"photo_50"];
         }
         
         if (completionHandler) {
@@ -114,8 +121,8 @@
     
     dispatch_group_notify(self.dispatchRequestGroupsPostsGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         if (completionHandler) {
-//            NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:<#(NSString *)#> ascending:<#(BOOL)#>];
-//            [posts sortUsingDescriptors:@[sortDescriptor]];
+            NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
+            [posts sortUsingDescriptors:@[sortDescriptor]];
             completionHandler(YES, [NSArray arrayWithArray:posts]);
         }
     });
