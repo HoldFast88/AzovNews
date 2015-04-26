@@ -29,7 +29,7 @@
     gettingSizeLabel.font = [UIFont systemFontOfSize:15.0f];
     gettingSizeLabel.text = post.text;
     gettingSizeLabel.numberOfLines = 0;
-    CGSize maximumLabelSize = CGSizeMake([UIScreen mainScreen].bounds.size.width - 32.0f, 99999.0f);
+    CGSize maximumLabelSize = CGSizeMake([UIScreen mainScreen].bounds.size.width - 31.0f, 99999.0f);
     
     CGSize expectSize = [gettingSizeLabel sizeThatFits:maximumLabelSize];
     
