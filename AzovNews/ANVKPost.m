@@ -27,7 +27,11 @@
 
 - (NSArray *)attachments
 {
-    return nil;
+    if (_attachments == nil) {
+        _attachments = self.dictionary[@"attachments"];
+    }
+    
+    return _attachments;
 }
 
 - (NSDate *)date

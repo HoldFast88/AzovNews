@@ -21,7 +21,7 @@
 - (void)requestGroupsPostsWithCompletionHandler:(ANGroupsPostsHandler)completionHandler
 {
     VKRequest *feedRequest = [VKApi requestWithMethod:@"wall.get"
-                                        andParameters:@{@"owner_id" : self.groupId, @"count" : @"3", @"filter" : @"all"}
+                                        andParameters:@{@"owner_id" : self.groupId, @"count" : @"12", @"filter" : @"all"}
                                         andHttpMethod:@"GET"];
     [feedRequest executeWithResultBlock:^(VKResponse *response) {
         NSMutableArray *posts = [NSMutableArray array];

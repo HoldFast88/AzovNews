@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A3CF24E537CCDD8021D2F95 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AABC9726F7CB5E57549297 /* libPods.a */; };
+		FFA0CD881AF64E7200756B64 /* ANAttachmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0CD871AF64E7200756B64 /* ANAttachmentCell.m */; };
 		FFC920621AD569ED00157AB6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC920611AD569ED00157AB6 /* main.m */; };
 		FFC920651AD569ED00157AB6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC920641AD569ED00157AB6 /* AppDelegate.m */; };
 		FFC920681AD569ED00157AB6 /* AzovNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFC920661AD569ED00157AB6 /* AzovNews.xcdatamodeld */; };
@@ -40,6 +41,8 @@
 		1E6661938BE0DAEC1C590340 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		37AABC9726F7CB5E57549297 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		723CAC9CD544AEDD4DF4CE3B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FFA0CD861AF64E7200756B64 /* ANAttachmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANAttachmentCell.h; sourceTree = "<group>"; };
+		FFA0CD871AF64E7200756B64 /* ANAttachmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANAttachmentCell.m; sourceTree = "<group>"; };
 		FFC9205C1AD569ED00157AB6 /* AzovNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AzovNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC920601AD569ED00157AB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFC920611AD569ED00157AB6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -107,6 +110,24 @@
 				1E6661938BE0DAEC1C590340 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FFA0CD841AF64E3700756B64 /* ANPostCell */ = {
+			isa = PBXGroup;
+			children = (
+				FFDC7EA31AD6C0D400C1F87F /* ANPostCell.h */,
+				FFDC7EA41AD6C0D400C1F87F /* ANPostCell.m */,
+			);
+			name = ANPostCell;
+			sourceTree = "<group>";
+		};
+		FFA0CD851AF64E4300756B64 /* Attachment Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FFA0CD861AF64E7200756B64 /* ANAttachmentCell.h */,
+				FFA0CD871AF64E7200756B64 /* ANAttachmentCell.m */,
+			);
+			name = "Attachment Cell";
 			sourceTree = "<group>";
 		};
 		FFC920531AD569ED00157AB6 = {
@@ -240,8 +261,8 @@
 		FFDC7EA21AD6C0BC00C1F87F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FFDC7EA31AD6C0D400C1F87F /* ANPostCell.h */,
-				FFDC7EA41AD6C0D400C1F87F /* ANPostCell.m */,
+				FFA0CD851AF64E4300756B64 /* Attachment Cell */,
+				FFA0CD841AF64E3700756B64 /* ANPostCell */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -463,6 +484,7 @@
 				FFC9206B1AD569ED00157AB6 /* ANAccountsViewController.m in Sources */,
 				FFDC7EF11AE1806600C1F87F /* ANVKGroup.m in Sources */,
 				FFC920621AD569ED00157AB6 /* main.m in Sources */,
+				FFA0CD881AF64E7200756B64 /* ANAttachmentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,13 +10,15 @@
 #import "AsyncImageView.h"
 #import "ANGroup.h"
 #import "ANVKManager.h"
+#import "ANAttachmentCell.h"
 
 
-@interface ANPostCell ()
+@interface ANPostCell () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *groupNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 @property (weak, nonatomic) IBOutlet AsyncImageView *logoImageView;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) ANPost *post;
 @end
 
@@ -33,7 +35,13 @@
     
     CGSize expectSize = [gettingSizeLabel sizeThatFits:maximumLabelSize];
     
-    return 79.0f + expectSize.height + 19.0f;
+    CGFloat collectionViewHeight = 0.0f;
+    
+    for (NSDictionary *attachment in post.attachments) {
+        collectionViewHeight += [ANAttachmentCell heightForAttachment:attachment];
+    }
+    
+    return 76.0f + expectSize.height + 18.0f + collectionViewHeight;
 }
 
 - (void)awakeFromNib
@@ -51,12 +59,37 @@
     self.groupNameLabel.text = group.groupName;
     self.textLabel.text = post.text;
     
-//    NSCalendar *calendar = [NSCalendar currentCalendar];
-//    [calendar setLocale:[NSLocale currentLocale]];
-//    NSDateComponents *components = [calendar components:(NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:post.date];
-    
     NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:post.date dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterShortStyle];
     self.dateLabel.text = localizedDateTime;
+    
+    [self.collectionView reloadData];
+}
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return [self.post.attachments count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ANAttachmentCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"reuseId" forIndexPath:indexPath];
+    NSDictionary *attachment = self.post.attachments[indexPath.row];
+    [cell configureWithAttachment:attachment];
+    return cell;
+}
+
+#pragma mark - UICollectionViewDelegate
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *attachment = self.post.attachments[indexPath.row];
+    CGFloat cellWidth = CGRectGetWidth([UIScreen mainScreen].bounds) - 32.0f;
+    CGFloat cellHeight = [ANAttachmentCell heightForAttachment:attachment];
+    return CGSizeMake(cellWidth, cellHeight);
 }
 
 @end
