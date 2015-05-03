@@ -12,7 +12,6 @@
 
 @interface ANAttachmentCell ()
 @property (weak, nonatomic) IBOutlet AsyncImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 @end
 
 
@@ -32,6 +31,7 @@
 - (void)awakeFromNib
 {
     [self.imageView setCrossfadeDuration:0.0f];
+    [self.imageView setShowActivityIndicator:YES];
 }
 
 - (void)configureWithAttachment:(NSDictionary *)attachment

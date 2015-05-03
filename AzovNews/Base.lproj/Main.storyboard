@@ -19,6 +19,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="b2a-AU-b7C">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R70-bi-gLC">
                                     <size key="itemSize" width="600" height="456"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -45,7 +46,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="zb0-mS-z6e"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -54,18 +55,19 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="a1n-vh-LZB"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUS-vH-Tch">
                                                     <rect key="frame" x="16" y="74" width="569" height="128"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WCK-Y7-Hbs">
                                                     <rect key="frame" x="16" y="210" width="568" height="228"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8ve-ue-WyV">
                                                         <size key="itemSize" width="249" height="125"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -83,26 +85,16 @@
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eBg-ir-YWm" customClass="AsyncImageView">
                                                                         <rect key="frame" x="0.0" y="0.0" width="249" height="125"/>
                                                                     </imageView>
-                                                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="KDa-f5-2FB">
-                                                                        <rect key="frame" x="106" y="44" width="37" height="37"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="37" id="cvS-2q-uOB"/>
-                                                                            <constraint firstAttribute="height" constant="37" id="pzq-gd-itw"/>
-                                                                        </constraints>
-                                                                    </activityIndicatorView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </view>
                                                             <constraints>
-                                                                <constraint firstAttribute="centerX" secondItem="KDa-f5-2FB" secondAttribute="centerX" id="5QO-rh-2ZP"/>
                                                                 <constraint firstItem="eBg-ir-YWm" firstAttribute="leading" secondItem="uTp-Dg-qk9" secondAttribute="leading" id="7fv-I6-5sw"/>
                                                                 <constraint firstItem="eBg-ir-YWm" firstAttribute="top" secondItem="uTp-Dg-qk9" secondAttribute="top" id="FfE-VI-n9N"/>
                                                                 <constraint firstAttribute="trailing" secondItem="eBg-ir-YWm" secondAttribute="trailing" id="GTn-pb-wzR"/>
-                                                                <constraint firstAttribute="centerY" secondItem="KDa-f5-2FB" secondAttribute="centerY" id="KKn-9G-ovS"/>
                                                                 <constraint firstAttribute="bottom" secondItem="eBg-ir-YWm" secondAttribute="bottom" id="kBF-Sq-MBb"/>
                                                             </constraints>
                                                             <connections>
-                                                                <outlet property="activityView" destination="KDa-f5-2FB" id="x52-Cc-Gjh"/>
                                                                 <outlet property="imageView" destination="eBg-ir-YWm" id="0YZ-gE-TgT"/>
                                                             </connections>
                                                         </collectionViewCell>
@@ -115,7 +107,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.98465665489999998" green="1" blue="0.60998250490000006" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="PUM-us-x9e" firstAttribute="top" secondItem="ANY-ca-rxE" secondAttribute="topMargin" constant="8" id="0l3-XV-jmj"/>
                                             <constraint firstAttribute="trailing" secondItem="gUS-vH-Tch" secondAttribute="trailing" constant="15" id="8g4-4V-GUo"/>
