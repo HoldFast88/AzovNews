@@ -11,6 +11,7 @@
 #import "ANPost.h"
 #import "ANFacebookManager.h"
 #import "ANVKManager.h"
+#import <CCBottomRefreshControl/UIScrollView+BottomRefreshControl.h>
 
 
 @interface ANFeedViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
@@ -27,6 +28,11 @@
 {
     [super viewDidLoad];
     [self updateDatasource];
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.triggerVerticalOffset = 100.0f;
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    self.collectionView.bottomRefreshControl = refreshControl;
 }
 
 - (void)updateDatasource
@@ -74,6 +80,13 @@
     CGFloat height = [ANPostCell heightForPost:object];
     
     return CGSizeMake(CGRectGetWidth(self.collectionView.frame), height);
+}
+
+#pragma mark - Helpers
+
+- (void)refresh:(UIRefreshControl *)refreshControl
+{
+    [refreshControl endRefreshing];
 }
 
 @end

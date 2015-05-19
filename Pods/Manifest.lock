@@ -1,33 +1,44 @@
 PODS:
   - AsyncImageView (1.5.1)
-  - Bolts (1.1.4)
-  - Facebook-iOS-SDK (4.0.1):
-    - Bolts (~> 1.0)
-    - Facebook-iOS-SDK/CoreKit (= 4.0.1)
-    - Facebook-iOS-SDK/LoginKit (= 4.0.1)
-    - Facebook-iOS-SDK/ShareKit (= 4.0.1)
-  - Facebook-iOS-SDK/CoreKit (4.0.1):
-    - Bolts (~> 1.0)
-    - Facebook-iOS-SDK/CoreKit/no-arc (= 4.0.1)
-  - Facebook-iOS-SDK/CoreKit/no-arc (4.0.1):
-    - Bolts (~> 1.0)
-  - Facebook-iOS-SDK/LoginKit (4.0.1):
-    - Bolts (~> 1.0)
+  - Bolts (1.1.5):
+    - Bolts/AppLinks (= 1.1.5)
+    - Bolts/Tasks (= 1.1.5)
+  - Bolts/AppLinks (1.1.5):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.1.5)
+  - CCBottomRefreshControl (0.5):
+    - Masonry
+  - Facebook-iOS-SDK (4.1.0):
+    - Bolts (~> 1.1)
+    - Facebook-iOS-SDK/CoreKit (= 4.1.0)
+    - Facebook-iOS-SDK/LoginKit (= 4.1.0)
+    - Facebook-iOS-SDK/ShareKit (= 4.1.0)
+  - Facebook-iOS-SDK/CoreKit (4.1.0):
+    - Bolts (~> 1.1)
+    - Facebook-iOS-SDK/CoreKit/no-arc (= 4.1.0)
+  - Facebook-iOS-SDK/CoreKit/no-arc (4.1.0):
+    - Bolts (~> 1.1)
+  - Facebook-iOS-SDK/LoginKit (4.1.0):
+    - Bolts (~> 1.1)
     - Facebook-iOS-SDK/CoreKit
-  - Facebook-iOS-SDK/ShareKit (4.0.1):
-    - Bolts (~> 1.0)
+  - Facebook-iOS-SDK/ShareKit (4.1.0):
+    - Bolts (~> 1.1)
     - Facebook-iOS-SDK/CoreKit
-  - VK-ios-sdk (1.1.5)
+  - Masonry (0.6.1)
+  - VK-ios-sdk (1.1.7)
 
 DEPENDENCIES:
   - AsyncImageView
+  - CCBottomRefreshControl
   - Facebook-iOS-SDK
   - VK-ios-sdk
 
 SPEC CHECKSUMS:
   AsyncImageView: db9433939160710b34a5c249479e03af2a2121b0
-  Bolts: f8e2f94edbf9fec7bb8de5ecaaa3aa6b7de6f64e
-  Facebook-iOS-SDK: 6d05532c97e9c542f8d87f94b7f6ee217493d00b
-  VK-ios-sdk: ee8f536d72aefde0a1228f555b4d057a5bfd2903
+  Bolts: aac24961496d504aa56fc267cde95162a71bac39
+  CCBottomRefreshControl: 2cfdbd6f5be5181f5f070637605981d5557e8e32
+  Facebook-iOS-SDK: f42dfb27283bf5f05e3a9edc88459a75b9892d99
+  Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
+  VK-ios-sdk: 303df4a8c5ef09dc3be4527b6d7afc7ab874f4f1
 
 COCOAPODS: 0.35.0

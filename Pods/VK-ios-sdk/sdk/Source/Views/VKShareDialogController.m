@@ -930,19 +930,25 @@ static const CGFloat kAttachmentsViewSize = 100.0f;
     [super viewWillAppear:animated];
     if (self.prepared) return;
     VKShareDialogView *view = (VKShareDialogView *) self.view;
-    if ([VKSdk wakeUpSession]) {
+    if ([VKSdk wakeUpSession:self.parent.requestedScope]) {
         [view.notAuthorizedView removeFromSuperview];
         view.textView.text = _parent.text;
         [self prepare];
     } else {
-        VKShareDialogView *view = (VKShareDialogView *) self.view;
-        [view addSubview:view.notAuthorizedView];
-        [view layoutSubviews];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(viewWillAppear:)
-                                                     name:UIApplicationDidBecomeActiveNotification
-                                                   object:nil];
+        [self setNotAuthorized];
     }
+}
+- (void) setNotAuthorized {
+    VKShareDialogView *view = (VKShareDialogView *) self.view;
+    [view addSubview:view.notAuthorizedView];
+    if ([VKSdk wakeUpSession]) {
+        view.notAuthorizedLabel.text = VKLocalizedString(@"UserHasNoRequiredPermissions");
+    }
+    [view layoutSubviews];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(viewWillAppear:)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -1061,6 +1067,7 @@ static const CGFloat kAttachmentsViewSize = 100.0f;
 }
 
 - (void)vkSdkUserDeniedAccess:(VKError *)authorizationError {
+    [self setNotAuthorized];
 }
 
 - (void)vkSdkShouldPresentViewController:(UIViewController *)controller {
@@ -1085,8 +1092,10 @@ static const CGFloat kAttachmentsViewSize = 100.0f;
 
     CGFloat maxHeight = kAttachmentsViewSize;
     self.attachmentsArray = [NSMutableArray new];
+    VKShareDialogView *shareDialogView = (VKShareDialogView *) self.view;
     //Attach and upload images
     for (VKUploadImage *img in _parent.uploadImages) {
+        if (!(img.imageData || img.sourceImage)) continue;
         CGSize size = img.sourceImage.size;
         size = CGSizeMake(MAX(floor(size.width * maxHeight / size.height), 50), maxHeight);
         VKUploadingAttachment *attach = [VKUploadingAttachment new];
@@ -1110,6 +1119,7 @@ static const CGFloat kAttachmentsViewSize = 100.0f;
             [self removeAttachIfExists:attach];
             attach.uploadingRequest = nil;
             [self.attachmentsScrollView reloadData];
+            [shareDialogView setNeedsLayout];
         }];
         [uploadRequest start];
         attach.uploadingRequest = uploadRequest;
@@ -1184,9 +1194,7 @@ static const CGFloat kAttachmentsViewSize = 100.0f;
     [self.attachmentsScrollView reloadData];
 
     if (_parent.shareLink) {
-        VKShareDialogView *view = (VKShareDialogView *) self.view;
-        [view setShareLink:_parent.shareLink];
-        [view layoutIfNeeded];
+        [shareDialogView setShareLink:_parent.shareLink];
     }
 }
 

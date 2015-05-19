@@ -49,8 +49,6 @@
 
 @implementation VKAuthorizeController
 
-static NSString *const REDIRECT_URL = @"https://oauth.vk.com/blank.html";
-
 + (void)presentForAuthorizeWithAppId:(NSString *)appId
                       andPermissions:(NSArray *)permissions
                         revokeAccess:(BOOL)revoke
@@ -97,10 +95,10 @@ static NSString *const REDIRECT_URL = @"https://oauth.vk.com/blank.html";
             @"display" : display ?: VK_DISPLAY_MOBILE,
             @"client_id" : clientId ?: @"",
             @"sdk_version" : VK_SDK_VERSION,
-            @"redirect_uri" : redirectUri ?: REDIRECT_URL,
+            @"redirect_uri" : redirectUri ?: @"",
             @"response_type" : @"token"
     };
-    return [NSString stringWithFormat:@"http://oauth.vk.com/authorize?%@", [VKUtil queryStringFromParams:params]];
+    return [NSString stringWithFormat:@"https://oauth.vk.com/authorize?%@", [VKUtil queryStringFromParams:params]];
 }
 
 #pragma mark View prepare
@@ -156,7 +154,7 @@ static NSString *const REDIRECT_URL = @"https://oauth.vk.com/blank.html";
     self = [super init];
     _appId = appId;
     _scope = [permissions componentsJoinedByString:@","];
-    _redirectUri = [[self class] buildAuthorizationUrl:REDIRECT_URL clientId:_appId scope:_scope revoke:revoke display:display];
+    _redirectUri = [[self class] buildAuthorizationUrl:nil clientId:_appId scope:_scope revoke:revoke display:display];
     return self;
 }
 
@@ -183,11 +181,11 @@ static NSString *const REDIRECT_URL = @"https://oauth.vk.com/blank.html";
     if (!webView.hidden && !self.navigationItem.rightBarButtonItem) {
         [self setRightBarButtonActivity];
     }
-    if ([urlString hasPrefix:REDIRECT_URL]) {
-        if ([VKSdk processOpenURL:[request URL] fromApplication:VK_ORIGINAL_CLIENT_BUNDLE] && _validationError)
-            [_validationError.request repeat];
-
-        [self dismiss];
+    if ([[[request URL] path] isEqual:@"/blank.html"]) {
+        [self dismissWithCompletion:^{
+            if ([VKSdk processOpenURL:[request URL] fromApplication:VK_ORIGINAL_CLIENT_BUNDLE] && _validationError)
+                [_validationError.request repeat];
+        }];
         return NO;
     }
     return YES;
@@ -230,17 +228,23 @@ static NSString *const REDIRECT_URL = @"https://oauth.vk.com/blank.html";
 #pragma mark Cancelation and dismiss
 
 - (void)cancelAuthorization:(id)sender {
-    if (!_validationError) {
-        VKError *error = [VKError errorWithCode:VK_API_CANCELED];
-        [VKSdk setAccessTokenError:error];
-    }
-    [self dismiss];
+    [self dismissWithCompletion:^{
+        if (!_validationError) {
+            VKError *error = [VKError errorWithCode:VK_API_CANCELED];
+            [VKSdk setAccessTokenError:error];
+        }
+    }];
 }
 
-- (void)dismiss {
+- (void)dismissWithCompletion:(void (^)())completion {
     _finished = YES;
-    if (_internalNavigationController.isBeingDismissed)
+
+    if (_internalNavigationController.isBeingDismissed) {
+        completion();
+
         return;
+    }
+
     if (!_internalNavigationController) {
         if (self.navigationController) {
             if ([VKSdk.instance.delegate respondsToSelector:@selector(vkSdkWillDismissViewController:)]) {
@@ -248,6 +252,7 @@ static NSString *const REDIRECT_URL = @"https://oauth.vk.com/blank.html";
             }
             [self.navigationController popViewControllerAnimated:YES];
 
+            completion();
         } else if (self.presentingViewController) {
             if ([VKSdk.instance.delegate respondsToSelector:@selector(vkSdkWillDismissViewController:)]) {
                 [VKSdk.instance.delegate vkSdkWillDismissViewController:self];
@@ -256,9 +261,11 @@ static NSString *const REDIRECT_URL = @"https://oauth.vk.com/blank.html";
                 if ([VKSdk.instance.delegate respondsToSelector:@selector(vkSdkDidDismissViewController:)]) {
                     [VKSdk.instance.delegate vkSdkDidDismissViewController:self];
                 }
+
+                completion();
             }];
         }
-    } else if (!_internalNavigationController.isBeingPresented) {
+    } else {
         if ([VKSdk.instance.delegate respondsToSelector:@selector(vkSdkWillDismissViewController:)]) {
             [VKSdk.instance.delegate vkSdkWillDismissViewController:self];
         }
@@ -266,12 +273,9 @@ static NSString *const REDIRECT_URL = @"https://oauth.vk.com/blank.html";
             if ([VKSdk.instance.delegate respondsToSelector:@selector(vkSdkDidDismissViewController:)]) {
                 [VKSdk.instance.delegate vkSdkDidDismissViewController:self];
             }
+
+            completion();
         }];
-    }
-    else {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (300 * NSEC_PER_MSEC)), dispatch_get_main_queue(), ^(void) {
-            [self dismiss];
-        });
     }
 }
 
