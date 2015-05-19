@@ -56,7 +56,7 @@
     self.post = post;
     
     ANGroup *group = [[ANVKManager sharedManager] groupWithIdentifier:post.groupId];
-    [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:group.groupLogoImage50URLString] target:self.logoImageView action:@selector(setImage:)];
+    [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:group.groupLogoImage100URLString] target:self.logoImageView action:@selector(setImage:)];
     
     self.groupNameLabel.text = group.groupName;
     self.textLabel.text = post.text;

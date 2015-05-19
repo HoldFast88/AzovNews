@@ -39,6 +39,7 @@ typedef NS_ENUM(NSUInteger, ANSource) {
 @protocol ANGroupProtocol <NSObject>
 @property (strong, nonatomic, readonly) NSArray *posts;
 @property (nonatomic) ANGroupType groupType;
+@property (nonatomic) NSUInteger offset;
 @property (strong, nonatomic) NSString *groupId;
 @property (strong, nonatomic) NSString *groupName;
 @property (strong, nonatomic) NSString *groupLogoImage50URLString;

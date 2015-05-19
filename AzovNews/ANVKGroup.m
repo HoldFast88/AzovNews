@@ -21,12 +21,19 @@
 - (void)requestGroupsPostsWithCompletionHandler:(ANGroupsPostsHandler)completionHandler
 {
     VKRequest *feedRequest = [VKApi requestWithMethod:@"wall.get"
-                                        andParameters:@{@"owner_id" : self.groupId, @"count" : @"12", @"filter" : @"all"}
+                                        andParameters:@{@"owner_id" : self.groupId, @"count" : @"12", @"filter" : @"all", @"offset" : [@(self.offset) stringValue]}
                                         andHttpMethod:@"GET"];
     [feedRequest executeWithResultBlock:^(VKResponse *response) {
+        NSArray *items = response.json[@"items"];
+        self.offset += [items count];
+        
         NSMutableArray *posts = [NSMutableArray array];
         
-        for (NSDictionary *item in response.json[@"items"]) {
+        for (NSDictionary *item in items) {
+            if (item[@"copy_history"] != nil) {
+                continue;
+            }
+            
             ANVKPost *post = [[ANVKPost alloc] initWithDictionary:item andSource:ANVK];
             [posts addObject:post];
         }

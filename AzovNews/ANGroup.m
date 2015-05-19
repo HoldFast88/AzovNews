@@ -24,6 +24,7 @@
 @synthesize groupLogoImage100URLString = _groupLogoImage100URLString;
 @synthesize groupLogoImage200URLString = _groupLogoImage200URLString;
 @synthesize groupLogoImage50URLString = _groupLogoImage50URLString;
+@synthesize offset;
 
 - (id <ANGroupProtocol>)initWithType:(ANGroupType)groupType andIdentifier:(NSString *)groupId
 {
@@ -32,6 +33,7 @@
     if (self) {
         self.groupId = groupId;
         self.groupType = groupType;
+        self.offset = 0;
     }
     
     return self;
