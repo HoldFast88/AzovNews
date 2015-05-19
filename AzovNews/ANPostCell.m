@@ -45,6 +45,12 @@
     return height;
 }
 
+- (void)prepareForReuse
+{
+    self.post = nil;
+    [self updateView];
+}
+
 - (void)awakeFromNib
 {
     [self.logoImageView setCrossfadeDuration:0.0f];
@@ -54,14 +60,18 @@
 - (void)configureWithPost:(ANPost *)post
 {
     self.post = post;
-    
-    ANGroup *group = [[ANVKManager sharedManager] groupWithIdentifier:post.groupId];
+    [self updateView];
+}
+
+- (void)updateView
+{
+    ANGroup *group = [[ANVKManager sharedManager] groupWithIdentifier:self.post.groupId];
     [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:group.groupLogoImage100URLString] target:self.logoImageView action:@selector(setImage:)];
     
     self.groupNameLabel.text = group.groupName;
-    self.textLabel.text = post.text;
+    self.textLabel.text = self.post.text;
     
-    NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:post.date dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterShortStyle];
+    NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:self.post.date dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterShortStyle];
     self.dateLabel.text = localizedDateTime;
     
     [self.collectionView reloadData];
