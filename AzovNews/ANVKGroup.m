@@ -32,16 +32,16 @@
         for (NSDictionary *item in items) {
             NSArray *attachments = item[@"attachments"];
             
-            BOOL videoFound = NO;
+            BOOL shouldShow = YES;
             
             for (NSDictionary *attachment in attachments) {
-                if ([attachment[@"type"] isEqualToString:@"video"]) {
-                    videoFound = YES;
+                if ([attachment[@"type"] isEqualToString:@"video"] || [attachment[@"type"] isEqualToString:@"link"]) {
+                    shouldShow = NO;
                     break;
                 }
             }
             
-            if (item[@"copy_history"] != nil || videoFound) {
+            if (item[@"copy_history"] != nil || !shouldShow) {
                 continue;
             }
             

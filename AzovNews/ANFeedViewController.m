@@ -14,6 +14,9 @@
 #import <CCBottomRefreshControl/UIScrollView+BottomRefreshControl.h>
 
 
+typedef void(^ANDatasourceUpdateHandler)();
+
+
 @interface ANFeedViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *datasource;
@@ -24,10 +27,19 @@
 
 @synthesize datasource = _datasource;
 
+- (NSArray *)datasource
+{
+    if (_datasource == nil) {
+        _datasource = @[];
+    }
+    
+    return _datasource;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self updateDatasource];
+    [self updateDatasourceWithCompletionHandler:NULL];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     refreshControl.triggerVerticalOffset = 100.0f;
@@ -35,14 +47,18 @@
     self.collectionView.bottomRefreshControl = refreshControl;
 }
 
-- (void)updateDatasource
+- (void)updateDatasourceWithCompletionHandler:(ANDatasourceUpdateHandler)completionHandler
 {
     [[ANVKManager sharedManager] updateGroupsInformationWithCompletionHandler:^(BOOL isSuccess) {
         [[ANVKManager sharedManager] requestGroupsPostsWithCompletionHandler:^(BOOL isSuccess, NSArray *posts) {
             if (isSuccess) {
-                self.datasource = posts;
+                self.datasource = [self.datasource arrayByAddingObjectsFromArray:posts];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    if (completionHandler) {
+                        completionHandler();
+                    }
+                    
                     [self updateView];
                 });
             }
@@ -86,7 +102,9 @@
 
 - (void)refresh:(UIRefreshControl *)refreshControl
 {
-    [refreshControl endRefreshing];
+    [self updateDatasourceWithCompletionHandler:^{
+        [refreshControl endRefreshing];
+    }];
 }
 
 @end
