@@ -33,7 +33,7 @@
     gettingSizeLabel.numberOfLines = 0;
     CGSize maximumLabelSize = CGSizeMake([UIScreen mainScreen].bounds.size.width - 31.0f, 99999.0f);
     
-    CGSize expectSize = [gettingSizeLabel sizeThatFits:maximumLabelSize];
+    CGSize expectedSize = [gettingSizeLabel sizeThatFits:maximumLabelSize];
     
     CGFloat collectionViewHeight = 0.0f;
     
@@ -41,7 +41,7 @@
         collectionViewHeight += [ANAttachmentCell heightForAttachment:attachment];
     }
     
-    CGFloat height = 76.0f + expectSize.height + 18.0f + collectionViewHeight;
+    CGFloat height = 16.0f + 50.0f + 8.0f + expectedSize.height + 8.0f + collectionViewHeight + 18.0f;
     return height;
 }
 
