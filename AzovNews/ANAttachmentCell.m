@@ -20,12 +20,17 @@
 + (CGFloat)heightForAttachment:(NSDictionary *)attachment
 {
     NSString *type = attachment[@"type"];
-    NSDictionary *attachmentBody = attachment[type];
-    CGFloat height = [attachmentBody[@"height"] floatValue];
-    CGFloat width = [attachmentBody[@"width"] floatValue];
-    CGFloat cellWidth = CGRectGetWidth([UIScreen mainScreen].bounds) - 32.0f;
-    CGFloat cellHeight = height / (width / cellWidth);
-    return cellHeight;
+    
+    if ([type isEqualToString:@"photo"]) {
+        NSDictionary *attachmentBody = attachment[type];
+        CGFloat height = [attachmentBody[@"height"] floatValue];
+        CGFloat width = [attachmentBody[@"width"] floatValue];
+        CGFloat cellWidth = CGRectGetWidth([UIScreen mainScreen].bounds) - 32.0f;
+        CGFloat cellHeight = height / (width / cellWidth);
+        return cellHeight;
+    } else {
+        return 0.0f;
+    }
 }
 
 - (void)awakeFromNib

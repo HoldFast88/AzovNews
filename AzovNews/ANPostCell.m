@@ -41,7 +41,8 @@
         collectionViewHeight += [ANAttachmentCell heightForAttachment:attachment];
     }
     
-    return 76.0f + expectSize.height + 18.0f + collectionViewHeight;
+    CGFloat height = 76.0f + expectSize.height + 18.0f + collectionViewHeight;
+    return height;
 }
 
 - (void)awakeFromNib
