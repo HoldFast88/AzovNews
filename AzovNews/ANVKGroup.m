@@ -30,7 +30,18 @@
         NSMutableArray *posts = [NSMutableArray array];
         
         for (NSDictionary *item in items) {
-            if (item[@"copy_history"] != nil) {
+            NSArray *attachments = item[@"attachments"];
+            
+            BOOL videoFound = NO;
+            
+            for (NSDictionary *attachment in attachments) {
+                if ([attachment[@"type"] isEqualToString:@"video"]) {
+                    videoFound = YES;
+                    break;
+                }
+            }
+            
+            if (item[@"copy_history"] != nil || videoFound) {
                 continue;
             }
             
