@@ -11,6 +11,9 @@
 #import "ANVKPost.h"
 
 
+#define kPostsPerRequest 3
+
+
 @implementation ANVKGroup
 
 - (id<ANGroupProtocol>)initWithType:(ANGroupType)groupType andIdentifier:(NSString *)groupId
@@ -21,7 +24,7 @@
 - (void)requestGroupsPostsWithCompletionHandler:(ANGroupsPostsHandler)completionHandler
 {
     VKRequest *feedRequest = [VKApi requestWithMethod:@"wall.get"
-                                        andParameters:@{@"owner_id" : self.groupId, @"count" : @"12", @"filter" : @"all", @"offset" : [@(self.offset) stringValue]}
+                                        andParameters:@{@"owner_id" : self.groupId, @"count" : [@(kPostsPerRequest) stringValue], @"filter" : @"all", @"offset" : [@(self.offset) stringValue]}
                                         andHttpMethod:@"GET"];
     [feedRequest executeWithResultBlock:^(VKResponse *response) {
         NSArray *items = response.json[@"items"];

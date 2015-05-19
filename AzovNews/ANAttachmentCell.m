@@ -33,6 +33,11 @@
     }
 }
 
+- (void)prepareForReuse
+{
+    self.imageView.image = nil;
+}
+
 - (void)awakeFromNib
 {
     [self.imageView setCrossfadeDuration:0.0f];

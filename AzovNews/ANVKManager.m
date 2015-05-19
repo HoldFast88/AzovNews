@@ -13,7 +13,7 @@
 #import "VKSdk.h"
 
 
-#define kGroupsIdentifiers @[@"-72444174", @"-1611359"]
+#define kGroupsIdentifiers @[@"-72444174", @"-80765893", @"-89748806", @"-82780581", @"-86003658", @"-62409206", @"-83476018"]
 
 
 @interface ANVKManager ()
