@@ -42,9 +42,11 @@ typedef void(^ANDatasourceUpdateHandler)();
     [self updateDatasourceWithCompletionHandler:NULL];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    refreshControl.triggerVerticalOffset = 100.0f;
+    refreshControl.triggerVerticalOffset = 60.0f;
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     self.collectionView.bottomRefreshControl = refreshControl;
+    
+    self.title = @"Лента";
 }
 
 - (void)updateDatasourceWithCompletionHandler:(ANDatasourceUpdateHandler)completionHandler
@@ -81,11 +83,13 @@ typedef void(^ANDatasourceUpdateHandler)();
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ANPostCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"reuseId" forIndexPath:indexPath];
-    ANPost *post = self.datasource[indexPath.row];
-    
-    [cell configureWithPost:post];
-    
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(ANPostCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ANPost *post = self.datasource[indexPath.row];
+    [cell configureWithPost:post];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout

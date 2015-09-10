@@ -42,6 +42,7 @@
 {
     [self.imageView setCrossfadeDuration:0.0f];
     [self.imageView setShowActivityIndicator:YES];
+    [self.imageView setBackgroundColor:[UIColor darkGrayColor]];
 }
 
 - (void)configureWithAttachment:(NSDictionary *)attachment
@@ -50,7 +51,7 @@
     NSDictionary *attachmentBody = attachment[type];
     NSString *previewImageURLString = attachmentBody[@"photo_604"];
     
-    [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:previewImageURLString] target:self.imageView action:@selector(setImage:)];
+    [self.imageView setImageURL:[NSURL URLWithString:previewImageURLString]];
 }
 
 @end

@@ -55,6 +55,8 @@
 {
     [self.logoImageView setCrossfadeDuration:0.0f];
     [self.logoImageView setShowActivityIndicator:YES];
+    [self.logoImageView.layer setCornerRadius:MAX(CGRectGetHeight(self.logoImageView.bounds), CGRectGetWidth(self.logoImageView.bounds)) / 2.0f];
+    [self.logoImageView.layer setMasksToBounds:YES];
 }
 
 - (void)configureWithPost:(ANPost *)post
@@ -87,9 +89,13 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ANAttachmentCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"reuseId" forIndexPath:indexPath];
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(ANAttachmentCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+{
     NSDictionary *attachment = self.post.attachments[indexPath.row];
     [cell configureWithAttachment:attachment];
-    return cell;
 }
 
 #pragma mark - UICollectionViewDelegate
