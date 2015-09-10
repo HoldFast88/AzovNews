@@ -12,12 +12,13 @@
 #import "ANFacebookManager.h"
 #import "ANVKManager.h"
 #import <CCBottomRefreshControl/UIScrollView+BottomRefreshControl.h>
+#import "UIScrollView+EmptyDataSet.h"
 
 
 typedef void(^ANDatasourceUpdateHandler)();
 
 
-@interface ANFeedViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface ANFeedViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *datasource;
 @end
@@ -39,6 +40,10 @@ typedef void(^ANDatasourceUpdateHandler)();
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.collectionView.emptyDataSetSource = self;
+    self.collectionView.emptyDataSetDelegate = self;
+    
     [self updateDatasourceWithCompletionHandler:NULL];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
@@ -101,6 +106,25 @@ typedef void(^ANDatasourceUpdateHandler)();
     
     return CGSizeMake(CGRectGetWidth(self.collectionView.frame), height);
 }
+
+#pragma mark - DZNEmptyDataSetSource
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [[NSAttributedString alloc] initWithString:@"Идет загрузка..."];
+}
+
+- (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIColor whiteColor];
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"Azov"];
+}
+
+#pragma mark - DZNEmptyDataSetDelegate
 
 #pragma mark - Helpers
 

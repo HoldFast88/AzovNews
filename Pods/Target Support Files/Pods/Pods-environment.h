@@ -36,6 +36,12 @@
 #define COCOAPODS_VERSION_MINOR_CCBottomRefreshControl 5
 #define COCOAPODS_VERSION_PATCH_CCBottomRefreshControl 0
 
+// DZNEmptyDataSet
+#define COCOAPODS_POD_AVAILABLE_DZNEmptyDataSet
+#define COCOAPODS_VERSION_MAJOR_DZNEmptyDataSet 1
+#define COCOAPODS_VERSION_MINOR_DZNEmptyDataSet 7
+#define COCOAPODS_VERSION_PATCH_DZNEmptyDataSet 1
+
 // Facebook-iOS-SDK
 #define COCOAPODS_POD_AVAILABLE_Facebook_iOS_SDK
 #define COCOAPODS_VERSION_MAJOR_Facebook_iOS_SDK 4
