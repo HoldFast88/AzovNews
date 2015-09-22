@@ -119,11 +119,6 @@ typedef void(^ANDatasourceUpdateHandler)();
     return [UIColor whiteColor];
 }
 
-- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
-{
-    return [UIImage imageNamed:@"Azov"];
-}
-
 #pragma mark - DZNEmptyDataSetDelegate
 
 #pragma mark - Helpers
